@@ -1,0 +1,128 @@
+extends layout
+
+block content
+  div.title
+  h1.title #{title}
+    
+    - var salespersons = ["Carlos Tamale","Abdullah Adan","Ozzie Ridwan"]
+    - var paymentterms = [ 'Bank Transfer', 'Cash','Loan', 'Reserved']
+  form(method='POST' action='')
+    div.form-group
+        label(for='salesperson') Salesperson
+            select(type ='select', name='type'   required='true')
+                    for salesperson in salespersons 
+                           option#user(value=paymentterms) #{salesperson} 
+    div.form-group    
+        label(for='invoicenumber') Invoice Number:
+        input#invoiceinput.form-control(type='text', placeholder= 'JO1001PAA' name='invoicenumber' required='true')
+    div.form-group
+        label(for='ordernumber')  Order Number:
+        input#invoiceinput.form-control(type='text', placeholder='' name='ordernumber' required='true')
+    div.form-group
+        label(for='invoicedate') Invoice Date:
+        input#invoiceinput.form-control(type='date', placeholder='' name='Invoicedate' value="2014-02-09" required='true')
+    div.form-group
+        label(for='subject') Subject:
+        input#invoiceinput.form-control(type='text', placeholder='' name='subject' required='true')
+    div.form-group
+        label(for='discount') Discount:
+        input#invoiceinput.form-control(type='text', placeholder='' name='discount' required='true')        
+    div.form-group
+        label(for='customernotes') Customer Notes:
+        input#invoiceinput.form-control(type='text', placeholder='' name='customernotes' required='true')        
+    div.form-group
+        label(for='paid') Amount Paid:
+        input#invoiceinput.form-control(type='text', placeholder='' name='paid' required='true')        
+    div.form-group
+        label(for='termsandConditions') Terms and Conditions: 
+        input#invoiceinput.form-control(type='text', placeholder='' name='termsandconditions' required='true')     
+    div.form-group
+        label(for='items') Pick an item: 
+        div.itemadd-form 
+        input#myInput.form-control(type='search', onmousedown='showItems()' placeholder='' name='items' required='true')  
+        div#dropit.dropdown-itemadd-form
+            for detail in details 
+              div#cards.card 
+                      div.container
+                          span#additmbtn.additembtn(onclick="createItemCard()") 
+                            p Add
+                          div 
+                            p #{detail.type}
+                          div.card-header 
+                            h2 #{detail.name} 
+                          div
+                            p #{detail.description}
+                          div  
+                            h4 £ #{detail.sellingprice}
+                          div 
+                            p Quantity  
+                            div.quantity
+                              input#myInput.form-control(type='text' , placeholder='25' name='quantity' required='true')
+                          div
+                            p #{detail._id}
+                            |
+                            hr
+    div.form-group
+        div
+          label#addBtn.addBtn(for='items'  ) Items : 5 
+        div#additems.makenewcard
+               
+    div.form-group
+        label(for='paymentterms') Payment Terms:
+            select(type='select', placeholder='Select Payment' name='paymentterm' required='true')
+               for payment  in paymentterms 
+                          option#user(value=paymentterm) #{payment}
+    div.form-group
+        label(for='customer') Customer:
+            select(type='select', placeholder='Select Customer' name='customer' required='true')
+               for customer in _customers
+                option(value=customer._id) #{customer.companyname} 
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+    for error in errors
+     li!= error.msg
+
+  include includes/javascripts/forms.pug
+
+  script.
+        //- document.getElementById("addBtn").addEventListener("click", createItemCard);
+        function createItemCard() {
+            //- const div = document.getElementsByClassName('makenewcard');
+            var container = document.createElement("div");
+            container.className = "container";
+            var card = document.createElement("div");
+            card.className = "Nwcard";
+            card.id= "Nwcard";
+            var minus = document.createElement("span");
+                minus.className = "additembtn";
+                minus.id = "minusItemBtn";
+                var minusSign = document.createElement("p");
+                    minusSign.innerText = "Remove";
+                    minus.appendChild(minusSign);
+            var type = document.createElement("div");
+                      type.innerText = "Digital" ;        
+            var name = document.createElement("h2");
+                        name.className = "card-header";
+                      name.innerText = "Brand Marketing";
+            var description = document.createElement("div");
+                      description.innerText = "We offer Branding services to you";
+            var sellingprice = document.createElement("h4");
+                      sellingprice.innerText = "£ 34";
+            var quantity = document.createElement("div");
+                      quantity.innerText = "Quantity";
+            var quantityinput = document.createElement("div");
+                        quantityinput.className = "quantity";
+                var Qinput = document.createElement("input");
+                        Qinput.id = "myInput";
+                        Qinput.className = "form-control";
+                        Qinput.setAttribute("type", "text");
+                        Qinput.setAttribute("placeholder", "Number of items");
+                quantityinput.appendChild(Qinput);
+            var id = document.createElement("div");
+                      id.innerText = "6292a38f68afb8ca69e3946e";
+            container.append(minus,type,name,description,sellingprice,quantity,quantityinput,id);
+            card.appendChild(container);  
+            document.getElementById("additems").appendChild(card);
+            }

@@ -1,0 +1,1 @@
+//routes for creating email from db on users request 

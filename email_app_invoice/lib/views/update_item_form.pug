@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  div.title
+  h1.title #{title}
+    
+    - var types = ["Digital","Service","Development"];
+
+  form(method='POST' action='')
+    div.form-group
+        label(for='type') Current Type: #{item.type}
+            select(type ='select',placeholder='Pick a type', name='type' )
+                    for typ  in types 
+                           option#user(value=type) #{typ} 
+    div.form-group    
+        label(for='name') Current Name: #{item.name}
+        input#name.form-control(type='text', placeholder= '' name='name'  )
+    div.form-group
+        label(for='name') Current Unit: #{item.unit}
+        input#unit.form-control(type='text', placeholder='Pkg,Hrs' name='unit' )
+    div.form-group
+        label(for='sellingprice') Current Price: #{item.sellingprice}
+        input#sellingprice.form-control(type='text', placeholder='9' name='sellingprice' )
+    div.form-group
+        label(for='description') Current Description: #{item.description}
+        input#description.form-control(type='text', placeholder='This a Digital Marketing Service' name='description' ) 
+    button.btn.btn-primary(type='submit') Submit
+  
+
+
+  if errors
+    ul
+    for error in errors
+     li!= error.msg

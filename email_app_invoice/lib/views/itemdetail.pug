@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  p  #{title}
+  
+      div.card
+         div.row
+            div.container
+                  h2 #{details.name}
+                  p #{details.type}
+                  h4 £ #{details.sellingprice}
+                  p #{details.description}
+                  p #{details.userid}
+
+      hr
+      p
+         a(href=details._id+'/delete') Delete Item 
+         a(href=details._id+'/update') Update Item 
+             a(href='/items/createnew') New Item 
+
+      hr
+      h3

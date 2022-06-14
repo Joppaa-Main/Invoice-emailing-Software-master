@@ -1,0 +1,21 @@
+
+extends layout
+
+block content
+
+  h1.title #{title}
+  p View all invoices
+  dl
+     each invoice in invoice_list
+        dt 
+          a(href=invoice.url) #{invoice.invoicenumber}
+        dd ID : #{invoice._id}
+        dd Customer Id  : #{invoice.user}
+     else
+        dt There are no invoices 
+         
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

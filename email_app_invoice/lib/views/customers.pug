@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  h1.title #{title}
+  p View all Customers 
+  dl
+     each customer in customers_list
+        dt 
+          a(href=customer.url) Name :  #{customer.fullname}
+        dd Email : #{customer.email}  
+        dd ID : #{customer._id}
+        
+     else
+        dt There are no customers.  
+
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1.title #{title} 
+
+  hr
+  p
+      a(href=_item.url+'/delete') Delete item
+      p 
+      a(href=_item.url) View item
+    
+  div.card
+    div.row
+        div.container
+            h2 Name : #{_item.name}
+            p  Id : #{_item._id}
+            h3 $ #{_item.sellingprice}  
+           
+  div.listitems
+   p Other items
+      dl 
+      for item in items
+        dt  #{item.name}
+        dd -  #{item._id}
+
+    

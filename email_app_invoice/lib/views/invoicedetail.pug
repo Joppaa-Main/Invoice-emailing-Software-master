@@ -1,0 +1,30 @@
+
+extends layout
+
+block content
+
+  p.title #{title} #{invoice_listed.invoicenumber}
+      div.card
+         div.row
+              div.container
+                  h2 #{invoice_listed.invoicenumber}
+                  p #{invoice_listed.ordernumber}
+                  h4 #{invoice_listed.salesperson}
+                  p #{invoice_listed.subject}
+                  p #{invoice_listed._id}
+      hr
+      div.controls
+        p
+            a(href=invoice_listed._id+'/delete') Delete Invoice
+            a(href=invoice_listed._id+'/update') Update Invoice
+            a(href='/invoices/createnew') New Invoice
+      hr
+      h3
+     
+
+      +card('welcome','select','onkeydown','customer','hard')
+
+      if errors
+       ul
+       for error in errors
+        li!= error.msg

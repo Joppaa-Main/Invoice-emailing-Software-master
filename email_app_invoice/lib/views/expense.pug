@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  h1.title #{title}
+  p View all expenses
+  dl
+     each expense in expense_list
+        dt 
+          a(href=expense.url) #{expense.categoryname}
+        dd Payment : #{expense.paymentmethod}  
+        dd ID : #{expense._id}
+        
+     else
+        dt There are no expenses.  
+
+
+  if errors
+   ul
+    for error in errors
+     li!= error.msg

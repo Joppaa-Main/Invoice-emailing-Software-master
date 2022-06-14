@@ -1,0 +1,20 @@
+
+mixin card(text1, text2, text3, text4, text5)
+     div.card
+        div.container
+            div 
+                h2=text1
+            div 
+                p=text2
+            div  
+                h4=text3
+            div
+                p=text4
+            div 
+                p Quantity  
+                div.quantity
+                input#myInput.form-control(type='text' , placeholder='25' name='quantity' required='true')
+            div
+                p=text5
+                |
+                hr

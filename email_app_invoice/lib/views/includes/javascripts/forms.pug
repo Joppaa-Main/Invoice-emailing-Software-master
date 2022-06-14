@@ -1,0 +1,96 @@
+
+script.
+
+
+ console.log("scripts are working");
+    document.getElementById("addBtn").addEventListener("click", cloneitems);
+    function cloneitems() {
+      
+        var currentitem = document.getElementsByClassName("Nwcard");
+        const item = currentitem;
+        console.log(item);
+        const clone = item.cloneNode(true);
+        document.getElementById("additems").appendChild(clone);
+        listitems = document.getElementById("cards").classList.toggle();
+        }
+
+        
+        var itemsnumber = document.getElementsByClassName("Nwcard");
+        console.log(itemsnumber);
+
+    //- function createItemCard() {
+    //-     //- const div = document.getElementsByClassName('makenewcard');
+    //-     var container = document.createElement("div");
+    //-     container.className = "container";
+    //-     var card = document.createElement("div");
+    //-     card.className = "card";
+    //-     card.id= "Nwcard";
+    //-     var minus = document.createElement("span");
+    //-         minus.className = "additembtn";
+    //-         minus.id = "minusItemBtn";
+    //-         var minusSign = document.createElement("p");
+    //-             minusSign.innerText = "Remove";
+    //-             minus.appendChild(minusSign);
+    //-     var type = document.createElement("div");
+    //-                type.innerText = "Digital" ;        
+    //-     var name = document.createElement("h2");
+    //-                  name.className = "card-header";
+    //-                name.innerText = "Brand Marketing";
+    //-     var description = document.createElement("div");
+    //-                description.innerText = "We offer Branding services to you";
+    //-     var sellingprice = document.createElement("h4");
+    //-                sellingprice.innerText = "£ 34";
+    //-     var quantity = document.createElement("div");
+    //-                quantity.innerText = "Quantity";
+    //-     var quantityinput = document.createElement("div");
+    //-                 quantityinput.className = "quantity";
+    //-         var Qinput = document.createElement("input");
+    //-                 Qinput.id = "myInput";
+    //-                 Qinput.className = "form-control";
+    //-                 Qinput.setAttribute("type", "text");
+    //-                 Qinput.setAttribute("placeholder", "Number of items");
+    //-         quantityinput.appendChild(Qinput);
+    //-     var id = document.createElement("div");
+    //-                id.innerText = "6292a38f68afb8ca69e3946e";
+    //-     container.append(minus,type,name,description,sellingprice,quantity,quantityinput,id);
+    //-     card.appendChild(container);  
+    //-     document.getElementById("additems").appendChild(card);
+    //-     }
+
+        function additems(id){
+            index = id.length;
+            console.log(index);
+
+        }
+
+    function showItems() {
+     listitems = document.getElementById("dropit").classList.toggle("show");
+
+           console.log('showing items');
+           return listitems ;
+     }
+     window.onclick = function(event) {
+        if (!event.target.matches('.form-control')) {
+            var dropdowns = document.getElementsByClassName("dropdown-itemadd-form");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                }
+        }
+     }
+//-  ̀  ̀{}
+        
+
+  // for each new card increment index by 1 
+
+        
+    
+    
+
+
+
+
+
