@@ -65,14 +65,16 @@ let getproductid = document.getElementById("_id");
 
     function addbtn (){
 
-    let addbtn =  document.getElementsByClassName("additembtn");
+    let addbtn =  document.getElementsByClassName("container");
     for (let i = 0; i < addbtn.length; i++) {
+        id =  addbtn[i];
     function increment() {
-    let selectedItem = addbtn[i].children.length;
+       
+    let selectedItem = id;
         quantity++;
             
         basket.push({selectedItem, quantity }); 
-                console.log(basket);
+                console.log(id);
             }
     addbtn[i].addEventListener("click", createItemCard);
     addbtn[i].addEventListener("click", increment); 
