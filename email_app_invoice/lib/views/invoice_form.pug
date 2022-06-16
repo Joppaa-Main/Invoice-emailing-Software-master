@@ -43,8 +43,8 @@ block content
         div#dropit.dropdown-itemadd-form
             for detail in details 
               div#cards.card 
-                      div.container
-                          span#additmbtn.additembtn(onclick="createItemCard()") 
+                      div#container.container
+                          span#additembtn.additembtn() 
                             p Add
                           div 
                             p #{detail.type}
@@ -56,15 +56,15 @@ block content
                             h4 £ #{detail.sellingprice}
                           div 
                             p Quantity  
-                            div.quantity
-                              input#myInput.form-control(type='text' , placeholder='25' name='quantity' required='true')
-                          div
-                            p #{detail._id}
+                            div#quantity.quantity
+                              input#quantityInput.form-control(type='text' , placeholder='25' name='quantity' required='true')
+                          div 
+                            p#_id #{detail._id}
                             |
                             hr
     div.form-group
         div
-          label#addBtn.addBtn(for='items'  ) Items : 5 
+          label#basketitems(for='itemsinbasket'  ) Items : 5 
         div#additems.makenewcard
                
     div.form-group
@@ -85,44 +85,7 @@ block content
      li!= error.msg
 
   include includes/javascripts/forms.pug
-
   script.
-        //- document.getElementById("addBtn").addEventListener("click", createItemCard);
-        function createItemCard() {
-            //- const div = document.getElementsByClassName('makenewcard');
-            var container = document.createElement("div");
-            container.className = "container";
-            var card = document.createElement("div");
-            card.className = "Nwcard";
-            card.id= "Nwcard";
-            var minus = document.createElement("span");
-                minus.className = "additembtn";
-                minus.id = "minusItemBtn";
-                var minusSign = document.createElement("p");
-                    minusSign.innerText = "Remove";
-                    minus.appendChild(minusSign);
-            var type = document.createElement("div");
-                      type.innerText = "Digital" ;        
-            var name = document.createElement("h2");
-                        name.className = "card-header";
-                      name.innerText = "Brand Marketing";
-            var description = document.createElement("div");
-                      description.innerText = "We offer Branding services to you";
-            var sellingprice = document.createElement("h4");
-                      sellingprice.innerText = "£ 34";
-            var quantity = document.createElement("div");
-                      quantity.innerText = "Quantity";
-            var quantityinput = document.createElement("div");
-                        quantityinput.className = "quantity";
-                var Qinput = document.createElement("input");
-                        Qinput.id = "myInput";
-                        Qinput.className = "form-control";
-                        Qinput.setAttribute("type", "text");
-                        Qinput.setAttribute("placeholder", "Number of items");
-                quantityinput.appendChild(Qinput);
-            var id = document.createElement("div");
-                      id.innerText = "6292a38f68afb8ca69e3946e";
-            container.append(minus,type,name,description,sellingprice,quantity,quantityinput,id);
-            card.appendChild(container);  
-            document.getElementById("additems").appendChild(card);
-            }
+
+ 
+  script(src='/javascript/form.js')

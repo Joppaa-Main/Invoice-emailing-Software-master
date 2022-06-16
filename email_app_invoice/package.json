@@ -4,7 +4,7 @@
   "private": true,
   "description": "Simple online invoicing software that helps you craft professional invoices, send payment reminders, keep track of expenses, log your work hours, and get paid faster using nodejs",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "devstart": "nodemon ./bin/www",
     "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart",
     "test": "echo \"Error: no test specified\" && exit 1"

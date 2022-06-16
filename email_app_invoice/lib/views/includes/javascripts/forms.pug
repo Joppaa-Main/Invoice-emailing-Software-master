@@ -1,9 +1,7 @@
 
 script.
-
-
- console.log("scripts are working");
-    document.getElementById("addBtn").addEventListener("click", cloneitems);
+  console.log("scripts are working");
+    //- document.getElementById("addBtn").addEventListener("click", cloneitems);
     function cloneitems() {
       
         var currentitem = document.getElementsByClassName("Nwcard");
@@ -72,6 +70,7 @@ script.
      window.onclick = function(event) {
         if (!event.target.matches('.form-control')) {
             var dropdowns = document.getElementsByClassName("dropdown-itemadd-form");
+            //- console.log(dropdowns);
             var i;
             for (i = 0; i < dropdowns.length; i++) {
                 var openDropdown = dropdowns[i];
